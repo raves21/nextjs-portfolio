@@ -15,9 +15,9 @@ const projects = [
   },
   {
     title: "Typhoonista",
-    subtitle: "Anime streaming website",
+    subtitle: "Typhoon-induced rice crop damage cost forecast analytics dashboard",
     titleColor: "text-blue-500",
-    logo: "./chainmed-logo.svg"
+    logo: "./typhoonista-logo.svg"
   },
 ];
 
