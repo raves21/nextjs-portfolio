@@ -4,7 +4,7 @@ export default function AboutMe() {
       <img
         src="./about-me-image.svg"
         alt=""
-        className="h-44 w-full object-cover rounded-lg"
+        className="h-44 w-full max-w-[350px] object-cover rounded-lg"
       />
       <div className="w-full flex flex-col items-center gap-4">
         <p className="text-3xl font-bold">

@@ -1,8 +1,5 @@
 "use client";
-import {
-  Dialog,
-  DialogPanel,
-} from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { useGlobalStore } from "./globalStore";
 import { useShallow } from "zustand/react/shallow";
 
@@ -19,12 +16,10 @@ export default function GlobalDialog() {
     <>
       <Dialog
         open={isDialogOpen}
-        onClose={toggleOpenDialog}
+        onClose={() => toggleOpenDialog(null)}
         className="relative z-50 overflow-y-auto"
       >
-        <div
-          className="fixed inset-0 flex w-dvw max-w-full bg-black/85 overflow-y-auto backdrop-blur-sm"
-        >
+        <div className="fixed inset-0 flex w-dvw max-w-full bg-black/85 overflow-y-auto backdrop-blur-sm">
           <DialogPanel className="max-w-[900px] w-full mx-auto">
             {dialogContent}
           </DialogPanel>

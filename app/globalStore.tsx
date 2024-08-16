@@ -7,7 +7,7 @@ type GlobalStoreValues = {
 };
 
 type GlobalStoreActions = {
-  toggleOpenDialog: (dialogContent: ReactNode) => void;
+  toggleOpenDialog: (dialogContent: ReactNode | null) => void;
 };
 
 type GlobalStore = GlobalStoreValues & GlobalStoreActions;

@@ -21,8 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <GlobalDialog />
-        <div className="max-w-full w-dvw bg-black text-mainWhite">
-          <div className="max-w-[1440px] mx-auto">{children}</div>
+        <div className="max-w-full w-dvw bg-mainDarkBg text-mainWhite">
+          <div className="max-w-[1300px] mx-auto">{children}</div>
         </div>
       </body>
     </html>

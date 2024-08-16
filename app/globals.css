@@ -67,3 +67,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes bounce-up {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-100%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-up {
+  animation: bounce-up 1s infinite;
+}
+
+@keyframes bounce-diagonal {
+  0%, 100% {
+    transform: translate(0, 0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translate(-20%, -20%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-diagonal {
+  animation: bounce-diagonal 1s infinite;
+}

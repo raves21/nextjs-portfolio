@@ -1,44 +1,17 @@
 import { X } from "lucide-react";
 import { useGlobalStore } from "../globalStore";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
-import azura1 from "@/public/azura-1.png";
-import azura2 from "@/public/azura-2.png";
-import azura4 from "@/public/azura-4.png";
-import StackIcon from "tech-stack-icons";
+import { Project } from "../Projects";
 
 type ProjectDetailsProps = {
-  title: string;
-  logoIcon?: string;
-  projectType: "Solo Project" | "Group Project";
-  role: "Developer" | "Frontend" | "Frontend & Backend";
-  date: string;
-  description: string;
-  techStack: string[];
-  images: string[];
+  project: Project;
 };
 
-export default function ProjectDetails() {
+export default function ProjectDetails({ project }: ProjectDetailsProps) {
   const { toggleOpenDialog } = useGlobalStore();
 
-  const images = [azura1, azura2, azura4];
-
-  const techStacks = [
-    "React",
-    "TailwindCSS",
-    "React Query",
-    "Zustand",
-    "ShadcnUI",
-  ];
-
   return (
-    <div className="w-full text-mainWhite mt-20 px-4 sm:px-6 pb-20">
+    <div className="w-full text-mainWhite mt-20 px-4 sm:px-6 xl:px-0 pb-20">
       <div className="w-full flex flex-col">
         <button
           onClick={() => toggleOpenDialog(null)}
@@ -47,43 +20,38 @@ export default function ProjectDetails() {
           <X className="size-4 group-hover:stroke-black stroke-mainWhite" />
         </button>
         <div className="flex w-full items-center gap-4">
-          <img src="./azura-logo.svg" alt="azra" className="size-8" />
-          <h1 className="font-semibold text-2xl">AzuraWatch</h1>
+          {project.logo && (
+            <img src={project.logo} alt={project.title} className="size-8" />
+          )}
+          <h1 className="font-semibold text-2xl">{project.title}</h1>
         </div>
         <div className="flex flex-col gap-12 md:flex-row mt-12">
-          <div className="space-y-3 md:flex-1 max-w-[300px]">
+          <div className="space-y-3 md:flex-1 max-w-[350px]">
             <div className="w-full grid grid-cols-2">
               <p className="text-gray-400">Project Type</p>
-              <p>Solo Project</p>
+              <p>{project.projectType}</p>
             </div>
             <div className="w-full grid grid-cols-2">
               <p className="text-gray-400">My role</p>
-              <p>Developer</p>
+              <p>{project.myRole}</p>
             </div>
             <div className="w-full grid grid-cols-2">
               <p className="text-gray-400">Date</p>
-              <p>July 2024</p>
+              <p>{project.timeline}</p>
             </div>
           </div>
-          <div className="md:flex-1">
-            <p>
-              AzuraWatch is a safehaven for otakus and anime-enjoyers to stream
-              their favorite animes—ad-free, for free. Powered by Consumet API
-              and Anify API.
-            </p>
-          </div>
+          <div className="md:flex-1 text-balance">{project.fullDescription}</div>
         </div>
         <div className="mt-12 flex">
           <button className="px-3 py-2 rounded-xl flex items-center gap-3 border border-mainWhite">
             Repo
-            {/* <StackIcon name="github" className="size-6 stroke-mainWhite"/> */}
-            <img src="./github-logo-white.png" className="size-6"/>
+            <img src="./github-logo-white.png" className="size-6" />
           </button>
         </div>
         <div className="mt-12">
           <p className="font-medium text-lg">Tech Stack</p>
           <div className="flex flex-wrap gap-3 mt-4 text-mainAccent">
-            {techStacks.map((tech, i) => (
+            {project.techStack.map((tech, i) => (
               <p key={i} className="font-semibold">
                 {tech}
               </p>
@@ -93,14 +61,17 @@ export default function ProjectDetails() {
         <div className="mt-12 w-full">
           <p className="font-medium text-lg">Screenshots</p>
           <div className="flex flex-col w-full gap-14 mt-5">
-            {images.map((image, i) => (
-              <div className="aspect-video w-full rounded-lg relative overflow-hidden">
+            {project.screenshots.map((screenshot, i) => (
+              <div
+                key={i}
+                className="aspect-video w-full rounded-lg relative overflow-hidden"
+              >
                 <Image
                   placeholder="blur"
                   quality={65}
-                  src={image}
+                  src={screenshot}
                   key={i}
-                  alt={`${image}`}
+                  alt={`${screenshot}`}
                   fill
                   className="object-cover size-full"
                 />
