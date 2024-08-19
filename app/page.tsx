@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Introduction from "./Introduction";
 import AboutMe from "./AboutMe";
 import Projects from "./Projects";

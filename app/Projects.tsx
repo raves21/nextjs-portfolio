@@ -7,12 +7,17 @@ import chainmed2 from "@/public/chainmed2.png";
 import chainmed3 from "@/public/chainmed3.png";
 import chainmed4 from "@/public/chainmed4.png";
 import chainmed5 from "@/public/chainmed5.png";
+import typhoonista1 from "@/public/typhoonista1.png";
+import typhoonista2 from "@/public/typhoonista2.png";
+import typhoonista3 from "@/public/typhoonista3.png";
 import { StaticImageData } from "next/image";
 
 export type Project = {
   title: string;
   subtitle: string;
   titleColor: string;
+  isMobile: boolean;
+  projectImage: StaticImageData;
   logo?: string;
   projectType: string;
   myRole: string;
@@ -20,6 +25,7 @@ export type Project = {
   fullDescription: string;
   screenshots: StaticImageData[];
   techStack: string[];
+  pointerClickIconClassname: string;
 };
 
 const projects: Project[] = [
@@ -27,7 +33,9 @@ const projects: Project[] = [
     title: "AzuraWatch",
     subtitle: "Anime streaming website",
     titleColor: "text-[#C026D3]",
-    logo: "./azura-logo.svg",
+    projectImage: azura1,
+    isMobile: false,
+    logo: "/azura-logo.svg",
     projectType: "Solo Project",
     myRole: "Developer",
     timeline: "Jul 2024 - Present",
@@ -41,12 +49,15 @@ const projects: Project[] = [
       "React Query",
       "Zustand",
     ],
+    pointerClickIconClassname: "stroke-white",
   },
   {
     title: "Chainmed",
     subtitle: "Decentralized patient-doctor appointment web-app",
     titleColor: "text-[#5872FF]",
-    logo: "./chainmed-logo.svg",
+    projectImage: chainmed1,
+    isMobile: false,
+    logo: "/chainmed-logo.svg",
     projectType: "Group Project",
     myRole: "Frontend",
     timeline: "Jul 2024 - Jul 2024",
@@ -61,32 +72,36 @@ const projects: Project[] = [
       "Zustand",
       "ICP (Internet Computer)",
     ],
+    pointerClickIconClassname: "stroke-black",
   },
   {
     title: "Typhoonista",
     subtitle:
       "Typhoon-induced rice crop damage cost forecast analytics dashboard",
-    titleColor: "text-blue-500",
-    logo: "./typhoonista-logo.svg",
+    titleColor: "text-[#0494e0]",
+    projectImage: typhoonista3,
+    isMobile: false,
+    logo: "/typhoonista-logo.svg",
     projectType: "Group Project",
     myRole: "Frontend & Backend",
     timeline: "Nov 2023 - Feb 2024",
     fullDescription:
-      "Typhoonista is our Bachelor's Degree thesis and is a predictive analytics web-app that aims to provide damage-cost forecasts of typhoon-induced rice crop damages using Machine Learning models. I was responsible for building the application.",
-    screenshots: [azura1, azura2, azura3],
+      "Typhoonista is our Bachelors Degree thesis and is a predictive analytics web-app that aims to provide damage-cost forecasts of typhoon-induced rice crop damages using Machine Learning models. I was responsible for building the application.",
+    screenshots: [typhoonista1, typhoonista2, typhoonista3],
     techStack: ["Flutter", "Firebase"],
+    pointerClickIconClassname: "stroke-black",
   },
 ];
 
 export default function Projects() {
   return (
-    <div className="flex flex-col pb-12 items-center">
-      <p className="text-3xl md:text-5xl lg:text-6xl font-bold mb-24">
+    <div className="flex flex-col pb-12 items-center md:pt-32">
+      <p className="text-3xl md:text-5xl lg:text-6xl font-bold mb-24 mobile-l:text-4xl">
         relevant <span className="text-mainAccent">projects</span>.
       </p>
       <div className="w-full flex flex-col gap-20 md:gap-36">
         {projects.map((project, i) => (
-          <ProjectItem id={i + 1} project={project} />
+          <ProjectItem key={i} id={i + 1} project={project} />
         ))}
       </div>
     </div>

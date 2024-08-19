@@ -20,7 +20,7 @@ export default function GlobalDialog() {
         className="relative z-50 overflow-y-auto"
       >
         <div className="fixed inset-0 flex w-dvw max-w-full bg-black/85 overflow-y-auto backdrop-blur-sm">
-          <DialogPanel className="max-w-[900px] w-full mx-auto">
+          <DialogPanel className="w-full">
             {dialogContent}
           </DialogPanel>
         </div>
