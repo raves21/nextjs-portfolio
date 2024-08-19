@@ -41,8 +41,8 @@ export default function AboutMe() {
             passion for building real-world applications.
           </p>
           <p>
-            I mainly focus on
-            <strong>&nbsp;Web Development</strong>, specializing on the frontend
+            I mainly tinker with
+            <strong>&nbsp;Web Development</strong>, focusing on the frontend
             with React and the Javascript ecosystem. I can also work on{" "}
             <strong>Mobile Development</strong> with Flutter.
           </p>
