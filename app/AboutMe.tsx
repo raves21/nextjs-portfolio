@@ -15,7 +15,7 @@ const techStack = [
 
 export default function AboutMe() {
   return (
-    <div className="pb-36 pt-24 flex flex-col md:flex-row items-center md:justify-center gap-4 md:gap-24">
+    <div className="pb-36 pt-24 flex flex-col md:flex-row items-center md:justify-center gap-4 md:gap-24" id="about">
       <div
         style={{
           borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",

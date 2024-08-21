@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import GlobalDialog from "./GlobalDialog";
+import Header from "./Header";
+import { Toaster } from "@/components/ui/toaster";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-});
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -28,7 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <GlobalDialog />
+        <Toaster/>
         <div className="max-w-full w-dvw bg-mainDarkBg text-mainWhite">
+          <Header/>
           <div className="max-w-[1300px] mx-auto">{children}</div>
         </div>
       </body>
