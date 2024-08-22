@@ -12,7 +12,7 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
     <div
       className={`w-full flex flex-col ${
         id % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center text-center gap-4 md:gap-6 lg:gap-10`}
+      } items-center text-center gap-4 sm:gap-10 md:gap-6 lg:gap-10`}
     >
       <ProjectItemImage project={project} />
       <div
@@ -23,11 +23,11 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
         } md:w-[45%] lg:w-1/2`}
       >
         <p
-          className={`${project.titleColor} mobile-l:text-2xl text-xl md:text-3xl lg:text-4xl font-bold`}
+          className={`${project.titleColor} mobile-l:text-2xl text-xl sm:text-3xl lg:text-4xl font-bold`}
         >
           {project.title}
         </p>
-        <p className="mt-2 mb-5 lg:text-xl max-w-[300px] lg:max-w-[380px] text-gray-400">
+        <p className="mt-2 mb-5 sm:text-lg lg:text-xl max-w-[300px] lg:max-w-[380px] text-gray-400">
           {project.subtitle}
         </p>
         <ProjectDetailsButton id={id} project={project} />

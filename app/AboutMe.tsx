@@ -35,7 +35,7 @@ export default function AboutMe() {
         <p className="text-3xl md:text-5xl lg:text-6xl font-bold mobile-l:text-4xl">
           about <span className="text-mainAccent">me</span>.
         </p>
-        <div className="max-w-[600px] mobile-m:text-base text-sm text-center space-y-4 md:text-start mt-1 md:mt-0 text-gray-300 lg:text-xl text-balance">
+        <div className="max-w-[600px] mobile-m:text-base sm:text-lg text-sm text-center space-y-4 md:text-start mt-1 md:mt-0 text-gray-300 lg:text-xl text-balance">
           <p>
             I&apos;m John Raves Ranara, an aspiring web developer with a strong
             passion for building real-world applications.
@@ -43,7 +43,7 @@ export default function AboutMe() {
           <p>
             I mainly tinker with
             <strong>&nbsp;Web Development</strong>, focusing on the frontend
-            with React and the Javascript ecosystem. I can also work on{" "}
+            with React and its ecosystem. I can also work on{" "}
             <strong>Mobile Development</strong> with Flutter.
           </p>
         </div>

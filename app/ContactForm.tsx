@@ -51,8 +51,8 @@ export default function ContactForm() {
         () => {
           toast({
             className: "bg-green-500 text-mainWhite",
-            title: "Message Sent ✔",
-            description: "Your message was successfully sent!",
+            title: "Message Sent!",
+            description: "Your message was successfully sent.",
           });
         },
         (error) => {
@@ -61,7 +61,7 @@ export default function ContactForm() {
           toast({
             className: "text-mainWhite",
             variant: "destructive",
-            title: "Uh oh, something went wrong. ✖",
+            title: "Uh oh, something went wrong.",
             description:
               "There was a problem sending the email, please try again later.",
           });
@@ -133,7 +133,7 @@ export default function ContactForm() {
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    className="bg-gray-800 text-mainWhite border-none h-48"
+                    className="bg-gray-800 text-mainWhite border-none h-44"
                     placeholder="Input message here..."
                     {...field}
                   />

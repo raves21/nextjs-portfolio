@@ -7,6 +7,7 @@ export default function Introduction() {
   return (
     <div id="home" className="flex flex-col md:flex-row-reverse items-center pb-16 gap-6 pt-24">
       <Image
+        priority
         style={{
           maskImage:
             "radial-gradient(circle at center, white 0%, white 5%, transparent 70%)",
