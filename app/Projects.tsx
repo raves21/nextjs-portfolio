@@ -24,8 +24,14 @@ export type Project = {
   timeline: string;
   fullDescription: string;
   screenshots: StaticImageData[];
-  techStack: string[];
+  techStack: Tech[];
   pointerClickIconClassname: string;
+};
+
+export type Tech = {
+  name: string;
+  icon: string;
+  isFromTechStackIcons: boolean
 };
 
 const projects: Project[] = [
@@ -43,11 +49,31 @@ const projects: Project[] = [
       "AzuraWatch is a safehaven for otakus and anime-enjoyers to stream their favorite animes—ad-free, for free. Powered by Consumet API and Anify API.",
     screenshots: [azura1, azura2, azura3],
     techStack: [
-      "React",
-      "TailwindCSS",
-      "Tanstack Router",
-      "React Query",
-      "Zustand",
+      {
+        name: "React",
+        icon: "reactjs",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "TailwindCSS",
+        icon: "tailwindcss",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "Tanstack Router",
+        icon: "/tanstack-logo.png",
+        isFromTechStackIcons: false
+      },
+      {
+        name: "React Query",
+        icon: "reactquery",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "Zustand",
+        icon: "/zustand-logo.svg",
+        isFromTechStackIcons: false
+      },
     ],
     pointerClickIconClassname: "stroke-white",
   },
@@ -65,12 +91,36 @@ const projects: Project[] = [
       "Chainmed is a decentralized medical appointment system. It is our project entry to the 2024 iThink Hackathon Davao Hack3rHouse where we won 2nd place. I was responsible for the patient side of the web-app.",
     screenshots: [chainmed1, chainmed2, chainmed3, chainmed4, chainmed5],
     techStack: [
-      "React",
-      "TailwindCSS",
-      "React Router",
-      "React Query",
-      "Zustand",
-      "ICP (Internet Computer)",
+      {
+        name: "React",
+        icon: "reactjs",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "TailwindCSS",
+        icon: "tailwindcss",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "React Router",
+        icon: "reactrouter",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "React Query",
+        icon: "reactquery",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "Zustand",
+        icon: "/zustand-logo.svg",
+        isFromTechStackIcons: false
+      },
+      {
+        name: "ICP (Internet Computer)",
+        icon: "/icp-logo.svg",
+        isFromTechStackIcons: false
+      },
     ],
     pointerClickIconClassname: "stroke-black",
   },
@@ -88,7 +138,18 @@ const projects: Project[] = [
     fullDescription:
       "Typhoonista is our Bachelors Degree thesis and is a predictive analytics web-app that aims to provide damage-cost forecasts of typhoon-induced rice crop damages using Machine Learning models. I was responsible for building the application.",
     screenshots: [typhoonista1, typhoonista2, typhoonista3],
-    techStack: ["Flutter", "Firebase"],
+    techStack: [
+      {
+        name: "Flutter",
+        icon: "flutter",
+        isFromTechStackIcons: true
+      },
+      {
+        name: "Firebase",
+        icon: "firebase",
+        isFromTechStackIcons: true
+      },
+    ],
     pointerClickIconClassname: "stroke-black",
   },
 ];
@@ -96,10 +157,10 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <div className="flex flex-col pb-12 items-center md:pt-32" id="projects">
-      <p className="text-3xl md:text-5xl lg:text-6xl font-bold mb-24 mobile-l:text-4xl">
+      <p className="text-3xl md:text-5xl lg:text-6xl font-bold mb-16 md:mb-24 mobile-l:text-4xl">
         relevant <span className="text-mainAccent">projects</span>.
       </p>
-      <div className="w-full flex flex-col gap-20 md:gap-36">
+      <div className="w-full flex flex-col gap-14 md:gap-32">
         {projects.map((project, i) => (
           <ProjectItem key={i} id={i + 1} project={project} />
         ))}

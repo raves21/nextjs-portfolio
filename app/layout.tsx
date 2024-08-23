@@ -4,6 +4,7 @@ import "./globals.css";
 import GlobalDialog from "./GlobalDialog";
 import Header from "./Header";
 import { Toaster } from "@/components/ui/toaster";
+import MenuSheet from "./MenuSheet";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -25,10 +26,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <GlobalDialog />
-        <Toaster/>
+        <Toaster />
         <div className="max-w-full w-dvw bg-mainDarkBg text-mainWhite">
-          <Header/>
-          <div className="max-w-[1300px] mx-auto">{children}</div>
+          <Header />
+          <div className="max-w-[1300px] mx-auto">
+            <MenuSheet />
+            {children}
+          </div>
         </div>
       </body>
     </html>

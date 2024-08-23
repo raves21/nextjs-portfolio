@@ -2,6 +2,7 @@ import { X } from "lucide-react";
 import { useGlobalStore } from "./globalStore";
 import Image from "next/image";
 import { Project } from "./Projects";
+import StackIcon from "tech-stack-icons";
 
 type ProjectDetailsProps = {
   project: Project;
@@ -32,7 +33,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
             )}
             <h1 className="font-semibold text-2xl">{project.title}</h1>
           </div>
-          <div className="flex flex-col gap-12 md:flex-row mt-12 text-sm md:text-base">
+          <div className="flex flex-col gap-12 md:flex-row mt-12 text-sm sm:text-base">
             <div className="space-y-3 md:flex-1 max-w-[400px]">
               <div className="w-full grid grid-cols-2">
                 <p className="text-gray-400">Project Type</p>
@@ -47,7 +48,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 <p>{project.timeline}</p>
               </div>
             </div>
-            <div className="md:flex-1 text-balance">
+            <div className="md:flex-1 text-pretty">
               {project.fullDescription}
             </div>
           </div>
@@ -69,17 +70,30 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
             </a>
           </div>
           <div className="mt-12">
-            <p className="font-medium text-lg">Tech Stack</p>
+            <p className="font-medium text-lg sm:text-xl">Tech Stack</p>
             <div className="flex flex-wrap gap-3 mt-4 text-mainAccent text-sm md:text-base">
               {project.techStack.map((tech, i) => (
-                <p key={i} className="font-semibold">
-                  {tech}
-                </p>
+                <div key={i} className="font-semibold flex items-center gap-2">
+                  {tech.isFromTechStackIcons ? (
+                    <StackIcon name={tech.icon} className="size-6" />
+                  ) : tech.name === "Tanstack Router" ? (
+                    <img src={tech.icon} className="size-6" />
+                  ) : (
+                    <Image
+                      src={tech.icon}
+                      height={0}
+                      width={0}
+                      className="size-6"
+                      alt={`${tech.name} icon`}
+                    />
+                  )}
+                  <p>{tech.name}</p>
+                </div>
               ))}
             </div>
           </div>
           <div className="mt-12 w-full">
-            <p className="font-medium text-lg">Screenshots</p>
+            <p className="font-medium text-lg sm:text-xl">Screenshots</p>
             <div className="flex flex-col w-full gap-14 mt-5">
               {project.screenshots.map((screenshot, i) => (
                 <Image

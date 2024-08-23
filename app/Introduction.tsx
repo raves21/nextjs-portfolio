@@ -5,7 +5,7 @@ import ContactButton from "./ContactButton";
 
 export default function Introduction() {
   return (
-    <div id="home" className="flex flex-col md:flex-row-reverse items-center pb-16 gap-6 pt-24">
+    <div id="home" className="flex flex-col md:flex-row-reverse items-center pb-16 gap-6 pt-28">
       <Image
         priority
         style={{
@@ -18,7 +18,7 @@ export default function Introduction() {
         alt="hero image"
         width={0}
         height={0}
-        className="size-[320px] mobile-l:size-[350px] sm:size-[400px] md:size-1/2 max-w-[560px] max-h-[560px] object-cover"
+        className="relative size-[320px] mobile-l:size-[350px] sm:size-[400px] md:size-1/2 max-w-[560px] max-h-[560px] object-cover"
       />
       <div className="w-full flex md:w-1/2 gap-2 flex-col justify-center items-center md:items-start">
         <h1 className="text-4xl font-bold sm:text-5xl xl:text-[65px] md:whitespace-nowrap">

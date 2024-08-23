@@ -1,6 +1,12 @@
+"use client";
+
 import { Project } from "./Projects";
-import ProjectItemImage from "./ProjectItemImage";
 import ProjectDetailsButton from "./ProjectDetailsButton";
+import { MousePointerClick } from "lucide-react";
+import Image from "next/image";
+import { useGlobalStore } from "./globalStore";
+import ProjectDetails from "./ProjectDetails";
+import { cn } from "@/lib/utils";
 
 type ProjectItemProps = {
   id: number;
@@ -8,13 +14,38 @@ type ProjectItemProps = {
 };
 
 export default function ProjectItem({ id, project }: ProjectItemProps) {
+  const { toggleOpenDialog } = useGlobalStore();
   return (
     <div
       className={`w-full flex flex-col ${
         id % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
       } items-center text-center gap-4 sm:gap-10 md:gap-6 lg:gap-10`}
     >
-      <ProjectItemImage project={project} />
+      <button
+        onClick={() => toggleOpenDialog(<ProjectDetails project={project} />)}
+        className="bg-gray-800 relative w-full md:w-[55%] lg:w-1/2 rounded-lg overflow-hidden grid md:hidden place-items-center group"
+      >
+        <MousePointerClick
+          className={cn(
+            "md:hidden size-8 absolute animate-bounce-diagonal top-[40%] right-[20%]",
+            project.pointerClickIconClassname
+          )}
+        />
+        <Image
+          src={project.projectImage}
+          alt={project.title}
+          width={0}
+          height={0}
+        />
+      </button>
+      <div className="hidden bg-gray-800 relative w-full md:w-[55%] rounded-lg overflow-hidden md:grid place-items-center group">
+        <Image
+          src={project.projectImage}
+          alt={project.title}
+          width={0}
+          height={0}
+        />
+      </div>
       <div
         className={`flex flex-col justify-center text-center ${
           id % 2 === 0

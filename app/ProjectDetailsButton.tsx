@@ -21,7 +21,7 @@ export default function ProjectDetailsButton({
         id % 2 === 0 ? "self-end" : "self-start"
       } hidden md:block border-mainAccent border text-mainWhite rounded-lg text-sm lg:text-base font-medium px-5 whitespace-nowrap py-2`}
     >
-      Open
+      Project Info
     </button>
   );
 }

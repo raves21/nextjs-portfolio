@@ -20,14 +20,14 @@ export default function AlternateContactInfo({
             href="https://www.linkedin.com/in/johnraves-ranara/"
             target="_blank"
             rel="noopen noreferrer"
-            className="hover:text-mainAccent"
+            className="hover:text-mainAccent underline underline-offset-2"
           >
             linkedin.com/in/johnraves-ranara/
           </a>
         </div>
         <div className="flex items-center gap-2">
           <Phone className="size-6" />
-          <p>+639686284439</p>
+          <p>+639686284439 &#40;Philippines&#41;</p>
         </div>
         <div className="flex items-center gap-2">
           <Mail className="size-6" />
