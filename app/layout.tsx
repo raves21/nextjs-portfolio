@@ -29,7 +29,7 @@ export default function RootLayout({
         <Toaster />
         <div className="max-w-full w-dvw bg-mainDarkBg text-mainWhite">
           <Header />
-          <div className="max-w-[1300px] mx-auto">
+          <div className="max-w-[1200px] mx-auto">
             <MenuSheet />
             {children}
           </div>

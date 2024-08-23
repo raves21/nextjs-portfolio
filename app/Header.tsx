@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <div className="z-10 w-full py-5 md:py-6 bg-[#171616] fixed top-0">
-      <div className="max-w-[1178px] mx-auto flex items-center justify-between h-full px-5 mobile-l:px-6 sm:px-10">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between h-full px-5 mobile-l:px-6 sm:px-10 xl:px-0">
         <button
           onClick={() => goToSection("home")}
           className="font-semibold text-2xl"  

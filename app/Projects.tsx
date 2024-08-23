@@ -156,7 +156,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="flex flex-col pb-12 items-center md:pt-32" id="projects">
+    <div className="flex flex-col pb-12 items-center md:pt-16" id="projects">
       <p className="text-3xl md:text-5xl lg:text-6xl font-bold mb-16 md:mb-24 mobile-l:text-4xl">
         relevant <span className="text-mainAccent">projects</span>.
       </p>
