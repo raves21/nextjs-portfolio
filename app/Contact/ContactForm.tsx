@@ -49,6 +49,7 @@ export default function ContactForm() {
       })
       .then(
         () => {
+          form.reset();
           toast({
             className: "bg-green-500 text-mainWhite",
             title: "Message Sent!",
@@ -57,7 +58,7 @@ export default function ContactForm() {
         },
         (error) => {
           setIsSendEmailError(true);
-          console.error("ERROR: ", error);
+          console.log("ERROR: ", error);
           toast({
             className: "text-mainWhite",
             variant: "destructive",
@@ -69,7 +70,6 @@ export default function ContactForm() {
       )
       .finally(() => {
         setisSendingEmail(false);
-        if (!isSendEmailError) form.reset();
       });
   }
 
@@ -144,7 +144,7 @@ export default function ContactForm() {
           <button
             disabled={isSendingEmail}
             type="submit"
-            className="w-full disabled:bg-gray-800 flex justify-center items-center py-2 outline outline-1 outline-mainAccent rounded-lg text-mainWhite"
+            className="w-full disabled:bg-gray-800 hover:bg-mainAccent disabled:hover:bg-gray-800 disabled:hover:text-mainWhite hover:text-mainDarkBg flex justify-center items-center py-2 outline outline-1 outline-mainAccent rounded-lg text-mainWhite"
           >
             {isSendingEmail ? "Submitting..." : "Submit"}
           </button>

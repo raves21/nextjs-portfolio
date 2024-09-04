@@ -1,11 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import heroImage from "@/public/hero-image.svg";
-import ContactButton from "./ContactButton";
 
 export default function Introduction() {
   return (
-    <div id="home" className="flex flex-col md:flex-row-reverse items-center pb-16 gap-6 pt-28">
+    <div
+      id="home"
+      className="flex flex-col md:flex-row-reverse items-center pb-16 gap-6 pt-28"
+    >
       <Image
         priority
         style={{
@@ -29,7 +31,15 @@ export default function Introduction() {
           <span className="whitespace-nowrap"> Davao City, PH 📍</span>
         </h2>
         <div className="flex gap-3 md:gap-4 xl:gap-5 text-sm font-medium w-full justify-center pt-5 md:justify-start md:text-base">
-          <ContactButton/>
+          <button
+            onClick={() => {
+              const element = document.querySelector(`#contact`);
+              element?.scrollIntoView();
+            }}
+            className="bg-mainAccent text-black rounded-lg px-5 whitespace-nowrap py-2 "
+          >
+            Contact
+          </button>
           <button className="flex gap-2 items-center border-mainAccent border text-mainWhite rounded-lg px-5 whitespace-nowrap py-2">
             Resume
             <ArrowUpRight className="size-5" />

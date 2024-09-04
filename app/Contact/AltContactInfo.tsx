@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Mail, Phone } from "lucide-react";
 
-export default function AlternateContactInfo({
+export default function AltContactInfo({
   className,
 }: {
   className: string;

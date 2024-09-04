@@ -1,26 +1,18 @@
-import { X } from "lucide-react";
-import { useGlobalStore } from "./globalStore";
 import Image from "next/image";
 import { Project } from "./Projects";
 import StackIcon from "tech-stack-icons";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 type ProjectDetailsProps = {
   project: Project;
 };
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
-  const { toggleOpenDialog } = useGlobalStore();
-
   return (
-    <div className="max-w-[1000px] w-full mx-auto 2xl:relative">
+    <div className="max-w-[1000px] mx-auto 2xl:relative">
       <div className="w-full text-mainWhite mt-20 px-4 sm:px-6 2xl:px-0 pb-20">
         <div className="w-full flex flex-col">
-          <button
-            onClick={() => toggleOpenDialog(null)}
-            className="fixed 2xl:absolute 2xl:right-0 2xl:-top-[0.5px] right-4 top-5 box-content p-2 rounded-full border border-gray-400 group hover:bg-mainWhite transition-all"
-          >
-            <X className="size-4 group-hover:stroke-black stroke-mainWhite" />
-          </button>
           <div className="flex w-full items-center gap-4">
             {project.logo && (
               <Image
@@ -52,23 +44,17 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
               {project.fullDescription}
             </div>
           </div>
-          <div className="mt-12 flex text-sm md:text-base">
-            <a
-              href="https://github.com/JohnRaves-Ranara/anime-fullstack-app"
+          {project.siteLink && (
+            <Link
+              href={project.siteLink}
               target="_blank"
               rel="noopen noreferrer"
-              className="px-3 py-2 rounded-xl flex items-center gap-3 border border-mainWhite"
+              className="px-3 py-2 mt-12 hover:bg-mainWhite w-fit hover:text-mainDarkBg group text-sm md:text-base rounded-xl flex items-center gap-3 border border-mainWhite"
             >
-              Repo
-              <Image
-                src="/github-logo-2.svg"
-                alt="github-logo"
-                className="size-6"
-                width={0}
-                height={0}
-              />
-            </a>
-          </div>
+              <p>Visit</p>
+              <ExternalLink className="size-6 group-hover:stroke-mainDarkBg" />
+            </Link>
+          )}
           <div className="mt-12">
             <p className="font-medium text-lg sm:text-xl">Tech Stack</p>
             <div className="flex flex-wrap gap-3 mt-4 text-mainAccent text-sm md:text-base">
@@ -76,7 +62,9 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 <div key={i} className="font-semibold flex items-center gap-2">
                   {tech.isFromTechStackIcons ? (
                     <StackIcon name={tech.icon} className="size-6" />
-                  ) : tech.name === "Tanstack Router" ? (
+                  ) : //PS: cant find svg of tanstack router and hive logo, if i use <Image/> with png,
+                  //image quality will be horrible
+                  tech.name === "Tanstack Router" || tech.name === "Hive (Flutter)" ? (
                     <img src={tech.icon} className="size-6" />
                   ) : (
                     <Image

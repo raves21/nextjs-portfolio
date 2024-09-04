@@ -1,10 +1,9 @@
 "use client";
 
 import { Project } from "./Projects";
-import ProjectDetailsButton from "./ProjectDetailsButton";
 import { MousePointerClick } from "lucide-react";
 import Image from "next/image";
-import { useGlobalStore } from "./globalStore";
+import { useGlobalStore } from "@/utils/globalStore";
 import ProjectDetails from "./ProjectDetails";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +13,7 @@ type ProjectItemProps = {
 };
 
 export default function ProjectItem({ id, project }: ProjectItemProps) {
-  const { toggleOpenDialog } = useGlobalStore();
+  const { toggleDialog: toggleDialog } = useGlobalStore();
   return (
     <div
       className={`w-full flex flex-col ${
@@ -22,7 +21,7 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
       } items-center text-center gap-4 sm:gap-10 md:gap-6 lg:gap-10`}
     >
       <button
-        onClick={() => toggleOpenDialog(<ProjectDetails project={project} />)}
+        onClick={() => toggleDialog(<ProjectDetails project={project} />)}
         className="bg-gray-800 relative w-full md:w-[55%] lg:w-1/2 rounded-lg overflow-hidden grid md:hidden place-items-center group"
       >
         <MousePointerClick
@@ -38,7 +37,7 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
           height={0}
         />
       </button>
-      <div className="hidden bg-gray-800 relative w-full md:w-[55%] rounded-lg overflow-hidden md:grid place-items-center group">
+      <div className="hidden bg-gray-800 w-full md:w-[55%] rounded-lg overflow-hidden md:grid place-items-center group">
         <Image
           src={project.projectImage}
           alt={project.title}
@@ -61,7 +60,14 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
         <p className="mt-2 mb-5 sm:text-lg lg:text-xl max-w-[300px] lg:max-w-[380px] text-gray-400">
           {project.subtitle}
         </p>
-        <ProjectDetailsButton id={id} project={project} />
+        <button
+          onClick={() => toggleDialog(<ProjectDetails project={project} />)}
+          className={`${
+            id % 2 === 0 ? "self-end" : "self-start"
+          } hidden md:block border border-mainAccent hover:border-mainDarkBg hover:bg-mainAccent hover:text-mainDarkBg transition-colors text-mainWhite rounded-lg text-sm lg:text-base font-medium px-5 whitespace-nowrap py-2`}
+        >
+          Project Info
+        </button>
       </div>
     </div>
   );

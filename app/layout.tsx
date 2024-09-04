@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import GlobalDialog from "./GlobalDialog";
+import GlobalDialog from "../components/global/GlobalDialog";
 import Header from "./Header";
 import { Toaster } from "@/components/ui/toaster";
 import MenuSheet from "./MenuSheet";

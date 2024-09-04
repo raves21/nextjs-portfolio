@@ -1,7 +1,7 @@
 "use client";
 import { Menu } from "lucide-react";
-import { useGlobalStore } from "./globalStore";
-import { goToSection } from "@/utils/utils";
+import { useGlobalStore } from "../utils/globalStore";
+import { goToSection } from "@/lib/utils";
 
 export default function Header() {
   const { toggleMenuSheet } = useGlobalStore();

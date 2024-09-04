@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { useGlobalStore } from "./globalStore";
+import { useGlobalStore } from "../utils/globalStore";
 import { X } from "lucide-react";
-import { goToSection } from "@/utils/utils";
+import { goToSection } from "@/lib/utils";
 
 export default function MenuSheet() {
   const { isMenuSheetOpen, toggleMenuSheet } = useGlobalStore();

@@ -1,5 +1,5 @@
 import ContactForm from "./ContactForm";
-import AlternateContactInfo from "./AlternateContactInfo";
+import AltContactInfo from "./AltContactInfo";
 
 export default function Contact() {
   return (
@@ -12,10 +12,10 @@ export default function Contact() {
             <span className="md:inline hidden">👉</span>
           </p>
         </div>
-        <AlternateContactInfo className="hidden md:block" />
+        <AltContactInfo className="hidden md:block" />
       </div>
       <ContactForm />
-      <AlternateContactInfo className="block md:hidden" />
+      <AltContactInfo className="block md:hidden" />
     </div>
   );
 }
