@@ -40,10 +40,10 @@ export default function Introduction() {
           >
             Contact
           </button>
-          <button className="flex gap-2 items-center border-mainAccent border text-mainWhite rounded-lg px-5 whitespace-nowrap py-2">
+          <a href="/myresume.pdf" target="_blank" rel="noopen noreferrer" className="flex gap-2 items-center border-mainAccent border text-mainWhite rounded-lg px-5 whitespace-nowrap py-2">
             Resume
             <ArrowUpRight className="size-5" />
-          </button>
+          </a>
         </div>
       </div>
     </div>
