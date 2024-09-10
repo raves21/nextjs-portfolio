@@ -19,20 +19,20 @@ import kbqs_admin3 from "@/public/admin-admin3.png";
 import kbqs_admin4 from "@/public/admin-admin4.png";
 import kbqs_admin5 from "@/public/admin-admin5.png";
 import kbqs_admin6 from "@/public/admin-admin6.png";
-import movies1 from "@/public/movies1.png"
-import movies2 from "@/public/movies2.png"
-import movies3 from "@/public/movies3.png"
-import kbqs_projectImage from "@/public/kbqs-mockup.png"
-import azura_projectImage from "@/public/azura-projectimage2.png"
-import movieCatalog_projectImage from "@/public/movies-mockup.png"
-import typhoonista_projectImage from "@/public/typhoonista-mockup.png"
-import chainmed_prjectImage from "@/public/chainmed-mockup.png"
-import gympulse_projectImage from "@/public/gympulse-mockup.png"
-import gympulse1 from "@/public/gympulse1.png"
-import visioLife_projectImage from "@/public/vlife-mockup.png"
-import visioLife1 from "@/public/vl1.png"
-import visioLife2 from "@/public/vl2.png"
-import visioLife3 from "@/public/vl3.png"
+import movies1 from "@/public/movies1.png";
+import movies2 from "@/public/movies2.png";
+import movies3 from "@/public/movies3.png";
+import kbqs_projectImage from "@/public/kbqs-mockup.png";
+import azura_projectImage from "@/public/azura-projectimage2.png";
+import movieCatalog_projectImage from "@/public/movies-mockup.png";
+import typhoonista_projectImage from "@/public/typhoonista-mockup.png";
+import chainmed_prjectImage from "@/public/chainmed-mockup.png";
+import gympulse_projectImage from "@/public/gympulse-mockup.png";
+import gympulse1 from "@/public/gympulse1.png";
+import visioLife_projectImage from "@/public/vlife-mockup.png";
+import visioLife1 from "@/public/vl1.png";
+import visioLife2 from "@/public/vl2.png";
+import visioLife3 from "@/public/vl3.png";
 import { StaticImageData } from "next/image";
 
 export type Project = {
@@ -48,8 +48,8 @@ export type Project = {
   screenshots: StaticImageData[];
   techStack: Tech[];
   pointerClickIconClassname: string;
-  repoLink?: string
-  siteLink?: string
+  repoLink?: string;
+  siteLink?: string;
 };
 
 export type Tech = {
@@ -118,7 +118,7 @@ const projects: Project[] = [
     timeline: "July 2024",
     fullDescription:
       "Chainmed is a decentralized medical appointment system. It is our project entry to the 2024 iThink Hackathon Davao Hack3rHouse where we won 2nd place. I was responsible for the patient side of the web-app.",
-    screenshots: [chainmed1, chainmed2, chainmed3, chainmed4, chainmed5],
+    screenshots: [chainmed1, chainmed2, chainmed3, chainmed5, chainmed4],
     techStack: [
       {
         name: "React",
@@ -217,8 +217,7 @@ const projects: Project[] = [
   },
   {
     title: "Raves Movies",
-    subtitle:
-      "Movie Catalog website",
+    subtitle: "Movie Catalog website",
     titleColor: "text-mainAccent",
     // titleColor: "text-[#b054f4]",
     projectImage: movieCatalog_projectImage,
@@ -278,8 +277,7 @@ const projects: Project[] = [
   },
   {
     title: "Gympulse",
-    subtitle:
-      "Workout tracking app",
+    subtitle: "Workout tracking app",
     titleColor: "text-mainAccent",
     projectImage: gympulse_projectImage,
     projectType: "Solo Project",
@@ -304,8 +302,7 @@ const projects: Project[] = [
   },
   {
     title: "VisioLife",
-    subtitle:
-      "Life Goal tracking app",
+    subtitle: "Life Goal tracking app",
     titleColor: "text-mainAccent",
     projectImage: visioLife_projectImage,
     projectType: "Solo Project",
@@ -338,7 +335,7 @@ export default function Projects() {
       </p>
       <div className="w-full flex flex-col gap-14 md:gap-32">
         {projects.map((project, i) => (
-          <ProjectItem key={i} id={i + 1} project={project}/>
+          <ProjectItem key={i} id={i + 1} project={project} />
         ))}
       </div>
     </div>
