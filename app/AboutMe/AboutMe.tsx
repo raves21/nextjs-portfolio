@@ -43,7 +43,7 @@ export default function AboutMe() {
           <p>
             I mainly tinker with
             <strong>&nbsp;Web Development</strong>, focusing on the frontend
-            with React and its ecosystem. I can also work on{" "}
+            with React &#40;Typescript&#41; and its ecosystem. I can also work on{" "}
             <strong>Mobile Development</strong> with Flutter.
           </p>
         </div>
