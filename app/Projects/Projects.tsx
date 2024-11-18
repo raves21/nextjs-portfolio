@@ -1,4 +1,7 @@
 import ProjectItem from "./ProjectItem";
+import azura7 from "@/public/azura7.png";
+import azura8 from "@/public/azura8.png";
+import azura9 from "@/public/azura9.png";
 import azura1 from "@/public/azura-1.png";
 import azura2 from "@/public/azura-2.png";
 import azura3 from "@/public/azura-4.png";
@@ -60,18 +63,18 @@ export type Tech = {
 
 const projects: Project[] = [
   {
-    title: "AzuraWatch",
-    subtitle: "Anime streaming website",
+    title: "Azura",
+    subtitle: "Media-streaming, social media site",
     // titleColor: "text-[#C026D3]",
     titleColor: "text-mainAccent",
     projectImage: azura_projectImage,
     logo: "/azura-logo.svg",
     projectType: "Solo Project",
     myRole: "Developer",
-    timeline: "Jul 2024 - Present",
+    timeline: "August 2024 - Present",
     fullDescription:
-      "AzuraWatch is a safehaven for otakus and anime-enjoyers to stream their favorite animes—ad-free, for free. Powered by Consumet API and Anify API.",
-    screenshots: [azura1, azura2, azura3],
+      "Azura is an ongoing project of mine and is a safehaven for Anime/Movie/TV lovers to not only stream their favorite shows, but also socialize, connect and share their experiences with their friends.",
+    screenshots: [azura9, azura8, azura7, azura1, azura2, azura3],
     techStack: [
       {
         name: "React",
@@ -102,6 +105,31 @@ const projects: Project[] = [
         name: "Zustand",
         icon: "/zustand-logo.svg",
         isFromTechStackIcons: false,
+      },
+      {
+        name: "NodeJS",
+        icon: "nodejs",
+        isFromTechStackIcons: true,
+      },
+      {
+        name: "ExpressJS",
+        icon: "/express-logo.svg",
+        isFromTechStackIcons: false,
+      },
+      {
+        name: "JSON Web Token",
+        icon: "/jwt-logo.svg",
+        isFromTechStackIcons: false,
+      },
+      {
+        name: "Prisma ORM",
+        icon: "prisma",
+        isFromTechStackIcons: true,
+      },
+      {
+        name: "PostgreSQL",
+        icon: "postgresql",
+        isFromTechStackIcons: true,
       },
     ],
     pointerClickIconClassname: "stroke-white",
