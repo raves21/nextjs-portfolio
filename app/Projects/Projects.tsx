@@ -44,6 +44,7 @@ export type Project = {
   titleColor: string;
   projectImage: StaticImageData;
   logo?: string;
+  logoHasProjectName?: boolean;
   projectType: string;
   myRole: string;
   timeline: string;
@@ -68,7 +69,8 @@ const projects: Project[] = [
     // titleColor: "text-[#C026D3]",
     titleColor: "text-mainAccent",
     projectImage: azura_projectImage,
-    logo: "/azura-logo.svg",
+    logo: "/azura-logo-with-label.svg",
+    logoHasProjectName: true,
     projectType: "Solo Project",
     myRole: "Developer",
     timeline: "August 2024 - Present",

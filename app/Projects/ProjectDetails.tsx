@@ -20,10 +20,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 alt={project.title}
                 width={0}
                 height={0}
-                className="size-8"
+                className={project.logoHasProjectName ? "w-28" : "size-8"}
               />
             )}
-            <h1 className="font-semibold text-2xl">{project.title}</h1>
+            {!project.logoHasProjectName && (
+              <h1 className="font-semibold text-2xl">{project.title}</h1>
+            )}
           </div>
           <div className="flex flex-col gap-12 md:flex-row mt-12 text-sm sm:text-base">
             <div className="space-y-3 md:flex-1 max-w-[400px]">
@@ -62,18 +64,8 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 <div key={i} className="font-semibold flex items-center gap-2">
                   {tech.isFromTechStackIcons ? (
                     <StackIcon name={tech.icon} className="size-6" />
-                  ) : //PS: cant find svg of tanstack router and hive logo, if i use <Image/> with png,
-                  //image quality will be horrible
-                  tech.name === "Tanstack Router" || tech.name === "Hive (Flutter)" ? (
-                    <img src={tech.icon} className="size-6" />
                   ) : (
-                    <Image
-                      src={tech.icon}
-                      height={0}
-                      width={0}
-                      className="size-6"
-                      alt={`${tech.name} icon`}
-                    />
+                    <img src={tech.icon} className="size-6" />
                   )}
                   <p>{tech.name}</p>
                 </div>

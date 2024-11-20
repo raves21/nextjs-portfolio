@@ -37,7 +37,10 @@ export default function ProjectItem({ id, project }: ProjectItemProps) {
           height={0}
         />
       </button>
-      <div className="hidden bg-gray-800 w-full md:w-[55%] rounded-lg overflow-hidden md:grid place-items-center group">
+      <div
+        onClick={() => toggleDialog(<ProjectDetails project={project} />)}
+        className="hidden hover:cursor-pointer bg-gray-800 w-full md:w-[55%] rounded-lg overflow-hidden md:grid place-items-center group"
+      >
         <Image
           src={project.projectImage}
           alt={project.title}

@@ -28,7 +28,7 @@ export default function Introduction() {
         </h1>
         <h2 className="text-center sm:text-xl max-w-[400px] mt-2 md:text-start md:max-w-[300px] lg:max-w-[500px] lg:text-2xl xl:text-2xl text-gray-300">
           An aspiring web developer based in
-          <span className="whitespace-nowrap"> Davao City, PH 📍</span>
+          <span className="whitespace-nowrap"> Davao City, Philippines 📍</span>
         </h2>
         <div className="flex gap-3 md:gap-4 xl:gap-5 text-sm font-medium w-full justify-center pt-5 md:justify-start md:text-base">
           <button
@@ -40,7 +40,12 @@ export default function Introduction() {
           >
             Contact
           </button>
-          <a href="/myresume.pdf" target="_blank" rel="noopen noreferrer" className="flex gap-2 items-center border-mainAccent border text-mainWhite rounded-lg px-5 whitespace-nowrap py-2">
+          <a
+            href="/myresume.pdf"
+            target="_blank"
+            rel="noopen noreferrer"
+            className="flex gap-2 items-center border-mainAccent border text-mainWhite rounded-lg px-5 whitespace-nowrap py-2"
+          >
             Resume
             <ArrowUpRight className="size-5" />
           </a>

@@ -1,66 +1,80 @@
 import StackIcon from "tech-stack-icons";
 import Image from "next/image";
 import me from "@/public/me-2-compressed.jpg";
-import { FunctionComponent, useRef } from "react";
+import { FunctionComponent, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const techStack = [
-  "reactjs",
-  "typescript",
-  "js",
-  "html5",
-  "css3",
-  "tailwindcss",
-  "nodejs",
-  "prisma",
-  "nextjs2",
-  "flutter",
-];
-
-const stack = [
   {
-    name: "reactjs",
+    name: "React",
+    icon: "reactjs",
+    isFromTechStackIcons: true,
     site: "https://react.dev/",
   },
   {
-    name: "typescript",
+    name: "Typescript",
+    icon: "typescript",
+    isFromTechStackIcons: true,
     site: "https://www.typescriptlang.org/",
   },
   {
-    name: "js",
+    name: "Javascript",
+    icon: "js",
+    isFromTechStackIcons: true,
     site: "https://en.wikipedia.org/wiki/JavaScript",
   },
   {
-    name: "html5",
+    name: "HTML",
+    icon: "html5",
+    isFromTechStackIcons: true,
     site: "https://en.wikipedia.org/wiki/HTML5#:~:text=HTML5%20(Hypertext%20Markup%20Language%205,as%20the%20HTML%20Living%20Standard.",
   },
   {
-    name: "css3",
+    name: "CSS",
+    icon: "css3",
+    isFromTechStackIcons: true,
     site: "https://en.wikipedia.org/wiki/CSS",
   },
   {
-    name: "tailwindcss",
+    name: "TailwindCSS",
+    icon: "tailwindcss",
+    isFromTechStackIcons: true,
     site: "https://tailwindcss.com/",
   },
   {
-    name: "nodejs",
+    name: "NodeJS",
+    icon: "nodejs",
+    isFromTechStackIcons: true,
     site: "https://nodejs.org/en",
   },
   {
-    name: "prisma",
+    name: "ExpressJS",
+    icon: "/express-logo.svg",
+    isFromTechStackIcons: false,
+    site: "https://expressjs.com/",
+  },
+  {
+    name: "Prisma ORM",
+    icon: "prisma",
+    isFromTechStackIcons: true,
     site: "https://www.prisma.io/",
   },
   {
-    name: "nextjs2",
+    name: "NextJS",
+    icon: "nextjs2",
+    isFromTechStackIcons: true,
     site: "https://nextjs.org/",
   },
   {
-    name: "flutter",
+    name: "Flutter",
+    icon: "flutter",
+    isFromTechStackIcons: true,
     site: "https://flutter.dev/",
   },
 ];
 
 export default function AboutMe() {
-  const techStackRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [hoveredTechName, setHoveredTechName] = useState<string | null>(null);
 
   return (
     <div
@@ -94,25 +108,39 @@ export default function AboutMe() {
           <p>
             I mainly tinker with
             <strong>&nbsp;Web Development</strong>. Be it on the frontend with
-            React, or in the backend with NodeJS. Though not my strongest point,
-            I can also work on <strong>Mobile Development</strong> with Flutter.
+            React, or in the backend with NodeJS. I can also work on{" "}
+            <strong>Mobile Development</strong> with Flutter.
           </p>
         </div>
         <div className="flex flex-wrap gap-6 mt-4 w-full justify-center md:justify-start">
-          {stack.map((tech, i) => (
+          {techStack.map((tech, i) => (
             <a
+              className="relative"
               href={tech.site}
               target="_blank"
-              key={tech.name}
-              ref={(element) => {
-                techStackRefs.current[i] = element;
-              }}
+              key={tech.icon}
+              onMouseEnter={() => setHoveredTechName(tech.name)}
+              onMouseLeave={() => setHoveredTechName(null)}
             >
-              <StackIcon
-                key={tech.name}
-                name={tech.name}
-                className="size-6 xl:size-7"
-              />
+              <>
+                {tech.isFromTechStackIcons ? (
+                  <StackIcon
+                    key={tech.icon}
+                    name={tech.icon}
+                    className="size-6 xl:size-7"
+                  />
+                ) : (
+                  <img src={tech.icon} className="size-6 xl:size-7" />
+                )}
+                <div
+                  className={cn(
+                    "bg-gray-800 py-1 px-2 whitespace-nowrap opacity-0 transition-opacity duration-150 rounded-sm text-sm absolute -bottom-10 right-1/2 translate-x-1/2 text-mainWhite",
+                    { "opacity-100": hoveredTechName === tech.name }
+                  )}
+                >
+                  {tech.name}
+                </div>
+              </>
             </a>
           ))}
         </div>
